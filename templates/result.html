@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Paper - 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E6E6FA; /* Light lavender background */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center content horizontally */
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .container {
+            display: flex; /* Make the container a flexbox */
+            width: 80%; /* Set a width for the container */
+            max-width: 1200px; /* Maximum width */
+            background-color: #fff; /* White background for the content area */
+            border-radius: 8px; /* Rounded corners for the container */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            padding: 20px; /* Padding inside the container */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4B0082; /* Indigo */
+        }
+
+        h2 {
+            color: #6A5ACD; /* SlateBlue */
+            margin-top: 20px; /* Space above each section heading */
+        }
+
+        ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove padding from list */
+        }
+
+        li {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc; /* Light border around each question */
+            border-radius: 5px; /* Rounded corners for list items */
+            background-color: #f9f9f9; /* Light background for list items */
+        }
+
+        strong {
+            color: #4B0082; /* Indigo for strong text */
+        }
+
+        p {
+            text-align: center; /* Center text for empty state */
+            font-style: italic; /* Italic style for empty state text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generated Questions</h1>
+        <div>
+            {% if result %}
+                {% for section, data in result.items() %}
+                    <h2>{{ section }}</h2>
+                    <ul>
+                        {% for question in data['Questions'] %}
+                            <li>
+                                <strong>Question No:</strong> {{ question['Question No'] }}<br>
+                                <strong>Question:</strong> {{ question['Question'] }}<br>
+                                <strong>Marks:</strong> {{ question['Marks'] }}<br>
+                                <strong>Subtopic:</strong> {{ question['Subtopic'] }}<br>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <p>No questions generated.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

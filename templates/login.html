@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EXAGRAM Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  
+  <!-- Internal CSS -->
+  <style>
+    /* General Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #b19cd9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: #d1c4e9;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 900px;
+        width: 100%;
+    }
+
+    .left-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 50%;
+        padding: 20px;
+    }
+
+    .left-panel img {
+        width: 200px;
+    }
+
+    .right-panel {
+        background-color: #9575cd;
+        border-radius: 10px;
+        padding: 30px;
+        width: 50%;
+    }
+
+    h2 {
+        color: rgb(23, 49, 100);
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+    }
+
+    .form-control {
+        background-color: #7e57c2;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-primary {
+        background-color: #7e57c2;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #6a50b1;
+    }
+
+   
+
+    /* Responsive design */
+    @media screen and (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .left-panel, .right-panel {
+            width: 100%;
+        }
+
+        .right-panel {
+            margin-top: 20px;
+        }
+    }
+  </style>
+  
+</head>
+<body>
+
+<div class="container">
+  <!-- Left Panel with EXABUDDY robot and other graphics -->
+  <div class="left-panel">
+    <img src="https://dogmitindonesia.com/wp-content/uploads/2019/02/login-icon-1.png" alt="Exabuddy Logo">
+    <p>Smart Education for Students</p>
+  </div>
+
+  <!-- Right Panel with Login Form -->
+  <div class="right-panel">
+    <h2>EXAGRAM</h2>
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <label for="email">Username or email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+      </div>
+      <a href="/forgot-password" class="forgot-link">Forgotten passwords</a>
+      <button type="submit" class="btn btn-primary">Log In</button>
+      
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

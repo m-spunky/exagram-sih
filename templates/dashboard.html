@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color:#dbc4f2; /* Purple background */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-left: 220px; /* Adjusted margin to fit sidebar */
+            margin-top: 50px;
+            border-radius: 8px;
+            background: #E2D3F3; /* Light lavender background for container */
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+        }
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #9A74A8; /* Purple sidebar background */
+            padding-top: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure the logout button stays at the bottom */
+        }
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #B494C9; /* Slightly lighter hover effect */
+        }
+        .sidebar a.active {
+            background-color: #7B5795; /* Active page color */
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #C3A9D7;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            background-color: #C3A9D7; /* Placeholder color for profile pic */
+        }
+        .user-info {
+            flex: 1;
+        }
+        .user-info h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #07000c;
+        }
+        .user-info p {
+            margin: 5px 0;
+            color: #241f27; /* Light grey for secondary info */
+        }
+        .logout-button {
+            background-color: #301a46;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        .logout-button:hover {
+            background-color: #e63946;
+        }
+        .bottom-section {
+            padding-bottom: 20px; /* Extra padding for bottom logout button */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+    <div class="top-section">
+        <a href="#" class="active">PROFILE</a>
+        <a href="/index_buddy">EXABUDDY</a>
+        <a href="/index2">TESTGEN</a>
+        <!-- <a href="#">EXACONNECT</a>
+        <a href="#">EXAVAULT</a> -->
+    </div>
+    
+    <!-- Logout Button at Bottom -->
+    <div class="bottom-section">
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Profile Section -->
+    <div class="profile-header">
+        <div class="d-flex align-items-center">
+            <div class="profile-pic"></div>
+            <div class="user-info">
+                <h2>{{ name }}</h2>
+                <p>University: {{ university }}</p>
+                <p>Branch: {{ branch }}</p>
+                <p>Year: {{ year }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

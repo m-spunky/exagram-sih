@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversational Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E6E6FA;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center content horizontally */
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .container {
+            display: flex; /* Make the container a flexbox */
+            width: 80%; /* Set a width for the container */
+            max-width: 1200px; /* Maximum width */
+        }
+
+        .left {
+            flex: 1; /* Allow the image section to grow */
+            display: flex; /* Center image vertically */
+        }
+
+        .right {
+            flex: 1; /* Allow the form section to grow */
+            padding: 20px; /* Padding around the form section */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4B0082; /* Indigo */
+        }
+
+        h2 {
+            color: #4B0082; /* Indigo */
+            margin-top: 20px;
+        }
+
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4B0082; /* Indigo */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6A5ACD; /* SlateBlue */
+        }
+
+        .chat-history {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-history p {
+            margin: 5px 0;
+        }
+
+        strong {
+            color: #4B0082; /* Indigo */
+        }
+
+        img {
+            width: 100%; /* Ensure the image is responsive */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners for the image */
+        }
+    </style>
+    <script>
+        function generateSectionInputs() {
+            const totalSections = document.getElementById('total_sections').value;
+            const sectionsContainer = document.getElementById('sections_container');
+            sectionsContainer.innerHTML = '';  // Clear previous inputs
+
+            for (let i = 0; i < totalSections; i++) {
+                sectionsContainer.innerHTML += `
+                    <h3>Section ${i + 1}</h3>
+                    <label for="section_type_${i}">Type of Question:</label>
+                    <input type="text" id="section_type_${i}" name="section_type_${i}" required><br><br>
+
+                    <label for="section_questions_${i}">Number of Questions:</label>
+                    <input type="number" id="section_questions_${i}" name="section_questions_${i}" required><br><br>
+
+                    <label for="section_marks_${i}">Marks per Question:</label>
+                    <input type="number" id="section_marks_${i}" name="section_marks_${i}" required><br><br>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="https://www.edusys.co/images/question-paper-generator.png" alt="Exabuddy Image"> <!-- Random image from placeholder.com -->
+        </div>
+        <div class="right">
+            <h1>Document Processing</h1>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="pdfs" multiple>
+                <button type="submit">Submit & Process</button>
+            </form>
+            <body>
+                <h1>Question Form</h1>
+                <form action="/result" method="POST">
+                    <label for="total_sections">Total Sections:</label>
+                    <input type="number" id="total_sections" name="total_sections" min="1" required oninput="generateSectionInputs()"><br><br>
+            
+                    <div id="sections_container"></div>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </body>
+        </div>
+    </div>
+</body>
+</html>
